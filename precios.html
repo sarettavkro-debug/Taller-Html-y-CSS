@@ -9,50 +9,44 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body>
+<main>
+  <section class="seccion" id="precios">
+    <h2>Lista de precios</h2>
+    <table class="tabla">
+      <caption>Productos de la Librería Saretta</caption>
+      <thead>
+        <tr><th>Producto</th><th>Tamaño</th><th>Precio</th></tr>
+      </thead>
+      <tbody>
+        <tr><td rowspan="2">Libretas cute 100 hojas</td><td>Mediana</td><td>$13.000</td></tr>
+        <tr><td>Grande</td><td>$18.000</td></tr>
+        <tr><td>Lapiceros Sanrio</td><td>Mediano</td><td>$5.000</td></tr>
+      </tbody>
+      <tfoot>
+        <tr><td colspan="3">Precios sujetos a cambio.</td></tr>
+      </tfoot>
+    </table>
+  </section>
 
-  <header class="encabezado">
-  <h1 class="encabezado__titulo">Librería Saretta</h1>
-  <nav class="encabezado__nav">
-    <a href="index.html">Inicio</a>
-    <a href="precios.html">Productos y precios</a>
-  </nav>
-</header>
-...
-<footer class="pie">
-  <p>&copy; 2026 Librería Saretta</p>
-</footer>
+  <section class="seccion" id="pedido">
+    <h2>Haz tu pedido</h2>
+    <form class="formulario" action="#" method="post">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" required>
 
-    <table>
-  <caption>Lista de precios</caption>
-  <thead>
-    <tr><th>Producto</th><th>Tamaño</th><th>Precio</th></tr>
-  </thead>
-  <tbody>
-    <tr><td rowspan="2">Libretas cute 100n hojas </td><td>Mediana</td><td>$13.000</td></tr>
-    <tr><td>Grande</td><td>$13.000</td></tr>
-    <tr><td>Lapiceros Sanrio </td><td>Mediano</td><td>$5.000</td></tr>
-  </tbody>
-  <tfoot>
-    <tr><td colspan="3">Precios sujetos a cambio.</td></tr>
-  </tfoot>
-</table>
+      <label for="correo">Correo</label>
+      <input type="email" id="correo" name="correo" required>
 
-<form action="#" method="post">
-  <label for="nombre">Nombre</label>
-  <input type="text" id="nombre" name="nombre" required>
+      <label for="fecha">Fecha de recogida</label>
+      <input type="date" id="fecha" name="fecha">
 
-  <label for="correo">Correo</label>
-  <input type="email" id="correo" name="correo" required>
+      <label for="pedido-detalle">Tu pedido</label>
+      <textarea id="pedido-detalle" name="pedido" rows="4"></textarea>
 
-  <label for="fecha">Fecha de recogida</label>
-  <input type="date" id="fecha" name="fecha">
-
-  <label for="pedido">Tu pedido</label>
-  <textarea id="pedido" name="pedido" rows="4"></textarea>
-
-  <button type="submit">Enviar pedido</button>
-</form>
-
+      <button type="submit" class="boton">Enviar pedido</button>
+    </form>
+    <p>Te enviaremos un correo de confirmación y te avisaremos cuando puedas pasar a buscarlo. ¡Gracias por elegirnos!</p>
+  </section>
+</main>
 </body>
 </html>
