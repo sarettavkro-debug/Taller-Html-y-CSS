@@ -1,0 +1,456 @@
+/* =========================================================
+   Librería Saretta · hoja de estilos compartida
+   Usada por index.html y precios.html
+   Paleta rosada · una sola columna · sin !important
+   ========================================================= */
+
+
+/* ===== 1. VARIABLES ===== */
+:root {
+  /* colores */
+  --color-fondo: #fff0f5;
+  --color-fondo-suave: #ffe0ea;
+  --color-principal: #d6336c;
+  --color-principal-oscuro: #a61e4d;
+  --color-acento: #f783ac;
+  --color-borde: #f3b6cb;
+  --color-texto: #4a1f2f;
+  --color-texto-suave: #7a4a5c;
+  --color-blanco: #ffffff;
+
+  /* colores con canal alfa (transparencia) */
+  --color-sombra: rgba(166, 30, 77, 0.25);
+  --color-brillo: rgba(255, 255, 255, 0.25);
+  --color-velo: rgba(255, 255, 255, 0.75);
+
+  /* fuentes (cada una con respaldo) */
+  --fuente-titulos: Georgia, "Times New Roman", serif;
+  --fuente-texto: "Trebuchet MS", Arial, sans-serif;
+
+  /* espacios y bordes */
+  --espacio-s: 0.5rem;
+  --espacio-m: 1rem;
+  --espacio-l: 1.5rem;
+  --espacio-xl: 2rem;
+  --radio: 0.75rem;
+}
+
+
+/* ===== 2. BASE (se aplica a todo el sitio) ===== */
+body {
+  margin: 0;
+  font-family: var(--fuente-texto);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fuente-titulos);
+  line-height: 1.2;
+}
+
+h2 {
+  color: var(--color-principal-oscuro);
+}
+
+h3 {
+  color: var(--color-principal);
+}
+
+a {
+  color: var(--color-principal-oscuro);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--color-principal);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+video,
+iframe {
+  max-width: 100%;
+}
+
+
+/* ===== 3. TEXTO (strong, em, s, abbr, sup) ===== */
+strong {
+  color: var(--color-principal-oscuro);
+}
+
+em {
+  color: var(--color-principal);
+}
+
+s {
+  color: var(--color-texto-suave);
+  text-decoration: line-through;
+}
+
+abbr {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+sup {
+  font-size: 0.75em;
+}
+
+
+/* ===== 4. ENCABEZADO Y NAVEGACIÓN ===== */
+.encabezado {
+  padding: var(--espacio-l) var(--espacio-m);
+  text-align: center;
+  color: var(--color-blanco);
+  /* fondo múltiple: dos círculos translúcidos + degradado */
+  background:
+    radial-gradient(circle at 15% 30%, var(--color-brillo) 0, var(--color-brillo) 0.5rem, transparent 0.55rem),
+    radial-gradient(circle at 85% 70%, var(--color-brillo) 0, var(--color-brillo) 0.8rem, transparent 0.85rem),
+    linear-gradient(135deg, var(--color-principal-oscuro), var(--color-principal));
+  border-bottom: 0.3rem solid var(--color-acento);
+}
+
+.encabezado__titulo {
+  margin: 0 0 var(--espacio-s);
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.encabezado__nav a {
+  margin: 0 var(--espacio-s);
+  padding: 0.25rem 0.5rem;
+  color: var(--color-blanco);
+  text-decoration: none;
+  border-radius: var(--radio);
+}
+
+.encabezado__nav a:hover {
+  background-color: var(--color-brillo);
+  text-decoration: underline;
+}
+
+
+/* ===== 5. CONTENIDO PRINCIPAL Y SECCIONES ===== */
+main {
+  max-width: 45rem;
+  margin: 0 auto;
+  padding: var(--espacio-m);
+}
+
+.seccion {
+  margin: var(--espacio-l) 0;
+  padding: var(--espacio-m);
+  border-radius: var(--radio);
+}
+
+.seccion h2::before {
+  content: "🌸 ";
+}
+
+/* al entrar por un ancla (#productos, #horarios...) la sección se resalta */
+.seccion:target {
+  background-color: var(--color-fondo-suave);
+}
+
+
+/* ===== 6. TARJETAS DE PRODUCTOS ===== */
+.tarjeta {
+  max-width: 25rem;
+  margin: var(--espacio-l) auto;
+  padding: var(--espacio-m);
+  border: 2px solid var(--color-borde);
+  border-bottom: 6px solid var(--color-acento);
+  border-radius: var(--radio);
+  background-color: var(--color-blanco);
+  box-shadow: 0 0.25rem 0.75rem var(--color-sombra);
+  overflow: hidden;
+  animation: aparecer 0.8s ease-out;
+}
+
+/* modificador: tarjeta en promoción (va después de .tarjeta: empatan y gana el orden) */
+.tarjeta--promo {
+  background-color: var(--color-fondo-suave);
+}
+
+.tarjeta__imagen {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radio);
+}
+
+.tarjeta h3 {
+  margin: var(--espacio-s) 0 0;
+}
+
+.tarjeta p {
+  margin: var(--espacio-s) 0;
+  color: var(--color-texto);
+}
+
+.tarjeta .tarjeta__precio {
+  font-size: 1.2rem;
+  color: var(--color-principal-oscuro);
+}
+
+
+/* ===== 7. LISTAS ===== */
+ul {
+  list-style: square;
+}
+
+ol {
+  list-style: decimal;
+}
+
+li {
+  margin-bottom: 0.25rem;
+}
+
+li::marker {
+  color: var(--color-principal);
+  font-weight: bold;
+}
+
+
+/* ===== 8. OPINIONES ===== */
+.opinion {
+  margin: var(--espacio-m) 0;
+  padding: var(--espacio-m) var(--espacio-l);
+  border-left: 0.35rem solid var(--color-principal);
+  border-radius: var(--radio);
+  background-color: var(--color-velo);
+  font-style: italic;
+}
+
+.opinion p {
+  margin: 0;
+}
+
+.opinion__autor {
+  display: block;
+  margin-top: var(--espacio-s);
+  font-style: normal;
+  font-weight: bold;
+  color: var(--color-principal-oscuro);
+}
+
+.opinion__autor::before {
+  content: "— ";
+}
+
+
+/* ===== 9. MAPA / VIDEO ===== */
+.mapa {
+  display: block;
+  box-sizing: border-box; /* para que el borde no haga desbordar el 100% */
+  width: 100%;
+  height: 15rem;
+  border: 0.25rem solid var(--color-borde);
+  border-radius: var(--radio);
+}
+
+
+/* ===== 10. ENLACES EXTERNOS ===== */
+/* selector de atributo: solo los enlaces que abren en otra pestaña */
+a[target="_blank"]::after {
+  content: " ↗";
+}
+
+
+/* ===== 11. TABLA DE PRECIOS ===== */
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-blanco);
+}
+
+.tabla caption {
+  margin-bottom: var(--espacio-s);
+  font-family: var(--fuente-titulos);
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--color-principal-oscuro);
+}
+
+.tabla th,
+.tabla td {
+  padding: var(--espacio-s);
+  border: 1px solid var(--color-borde);
+  text-align: left;
+}
+
+.tabla th {
+  background-color: var(--color-principal);
+  color: var(--color-blanco);
+}
+
+/* pseudoclase estructural: filas pares del tbody */
+.tabla tbody tr:nth-child(even) {
+  background-color: var(--color-fondo-suave);
+}
+
+.tabla tfoot td {
+  font-size: 0.9rem;
+  font-style: italic;
+  text-align: center;
+}
+
+
+/* ===== 12. FORMULARIO ===== */
+.formulario {
+  max-width: 30rem;
+  margin: var(--espacio-xl) auto;
+  padding: var(--espacio-l);
+  border: 2px solid var(--color-borde);
+  border-radius: var(--radio);
+  background-color: var(--color-blanco);
+}
+
+/* se resalta mientras escribes en cualquier campo */
+.formulario:focus-within {
+  border-color: var(--color-principal);
+  box-shadow: 0 0 0.75rem var(--color-sombra);
+}
+
+.formulario label {
+  display: block;
+  margin-top: var(--espacio-m);
+  font-weight: bold;
+  color: var(--color-principal-oscuro);
+}
+
+.formulario input,
+.formulario textarea {
+  display: block;
+  box-sizing: border-box; /* evita que padding y borde saquen el campo de la pantalla */
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.6rem;
+  border: 2px solid var(--color-borde);
+  border-radius: var(--radio);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font: inherit;
+}
+
+/* selector de atributo: los campos obligatorios llevan una franja rosada */
+.formulario input[required] {
+  border-left: 0.35rem solid var(--color-principal);
+}
+
+.boton {
+  display: block;
+  margin-top: var(--espacio-l);
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: var(--radio);
+  background-color: var(--color-principal);
+  color: var(--color-blanco);
+  font: inherit;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
+.boton:hover {
+  background-color: var(--color-principal-oscuro);
+}
+
+
+/* ===== 13. FOCO CON TECLADO (tecla TAB) ===== */
+a:focus-visible,
+.boton:focus-visible,
+.formulario input:focus-visible,
+.formulario textarea:focus-visible {
+  outline: 0.2rem solid var(--color-principal-oscuro);
+  outline-offset: 0.2rem;
+}
+
+/* en el encabezado el fondo es rosado oscuro, así que el foco va en blanco */
+.encabezado__nav a:focus-visible {
+  outline-color: var(--color-blanco);
+}
+
+
+/* ===== 14. PIE DE PÁGINA ===== */
+.pie {
+  margin-top: var(--espacio-xl);
+  padding: var(--espacio-m);
+  background-color: var(--color-principal-oscuro);
+  color: var(--color-blanco);
+  text-align: center;
+}
+
+.pie p {
+  margin: 0;
+}
+
+
+/* ===== 15. ANIMACIÓN ===== */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* respeta a quien tiene desactivadas las animaciones en su sistema */
+@media (prefers-reduced-motion: reduce) {
+  .tarjeta {
+    animation: none;
+  }
+}
+
+
+/* ===== 16. CELULAR (360 px) ===== */
+@media (max-width: 480px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  .encabezado__titulo {
+    font-size: 1.4rem;
+    letter-spacing: 0.08em;
+  }
+
+  .encabezado__nav a {
+    display: block;
+    margin: 0.25rem 0;
+  }
+
+  main {
+    padding: var(--espacio-s);
+  }
+
+  .seccion {
+    padding: var(--espacio-s);
+  }
+
+  .tarjeta {
+    padding: var(--espacio-s);
+  }
+
+  .formulario {
+    padding: var(--espacio-m);
+  }
+
+  .mapa {
+    height: 12rem;
+  }
+}
