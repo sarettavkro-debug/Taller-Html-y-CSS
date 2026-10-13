@@ -158,7 +158,8 @@ main {
 }
 
 /* al entrar por un ancla (#productos, #horarios...) la sección se resalta */
-.seccion:target {
+.seccion:target 
+{
   background-color: var(--color-fondo-suave);
 }
 
