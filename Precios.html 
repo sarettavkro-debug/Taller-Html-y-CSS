@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Precios</title>
+</head>
+<body>
+
+    <table>
+  <caption>Lista de precios</caption>
+  <thead>
+    <tr><th>Producto</th><th>Tamaño</th><th>Precio</th></tr>
+  </thead>
+  <tbody>
+    <tr><td rowspan="2">Libretas cute 100n hojas </td><td>Mediana</td><td>$13.000</td></tr>
+    <tr><td>Grande</td><td>$13.000</td></tr>
+    <tr><td>Lapiceros Sanrio </td><td>Mediano</td><td>$5.000</td></tr>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="3">Precios sujetos a cambio.</td></tr>
+  </tfoot>
+</table>
+
+<form action="#" method="post">
+  <label for="nombre">Nombre</label>
+  <input type="text" id="nombre" name="nombre" required>
+
+  <label for="correo">Correo</label>
+  <input type="email" id="correo" name="correo" required>
+
+  <label for="fecha">Fecha de recogida</label>
+  <input type="date" id="fecha" name="fecha">
+
+  <label for="pedido">Tu pedido</label>
+  <textarea id="pedido" name="pedido" rows="4"></textarea>
+
+  <button type="submit">Enviar pedido</button>
+</form>
+
+</body>
+</html>
